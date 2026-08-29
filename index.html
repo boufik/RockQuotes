@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Quotes — Perfect Phrases from Rock Music</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-top">
+      <div class="lyrics-search">
+        <label for="lyrics-input">Search lyrics</label>
+        <input type="search" id="lyrics-input" placeholder="Search inside the lyrics&hellip;" autocomplete="off">
+      </div>
+
+      <h1 class="site-title">Rock Quotes</h1>
+
+      <p class="site-tagline">Some of the most perfect phrases ever heard through rock music.</p>
+    </div>
+
+    <div class="header-controls">
+      <div class="main-search">
+        <label for="search-input">Search</label>
+        <input type="search" id="search-input" placeholder="Quote, band, song or album&hellip;" autocomplete="off">
+      </div>
+
+      <button type="button" id="surprise-btn" class="surprise-btn">Surprise me</button>
+    </div>
+
+    <div class="filter-bar">
+      <div id="tag-filters" class="tag-filters" role="group" aria-label="Filter by theme"></div>
+
+      <div class="match-mode" role="group" aria-label="Tag match mode">
+        <span class="match-mode-label">Match</span>
+        <button type="button" id="mode-and" class="mode-btn is-active" aria-pressed="true">ALL</button>
+        <button type="button" id="mode-or" class="mode-btn" aria-pressed="false">ANY</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <p id="result-count" class="result-count" aria-live="polite"></p>
+    <div id="quote-grid" class="quote-grid"></div>
+    <p id="empty-state" class="empty-state" hidden>No quotes match your search.</p>
+  </main>
+
+  <div id="quote-modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-quote">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel" role="document">
+      <button type="button" class="modal-close" data-close aria-label="Close">&times;</button>
+      <div id="modal-content" class="modal-content"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>
+      This website is a personal, non-commercial project created by a solo developer for
+      entertainment purposes only (no monetization). All band names, artist names, song and
+      album titles, lyrics, logos, images and other related media are the property of their
+      respective owners. Lyrics are quoted for commentary and identification purposes; no
+      copyright infringement is intended. This project is not sponsored by any of the mentioned
+      bands &mdash; it is solely based on my love for these bands and artists. If you have any
+      copyright concerns, please contact me.
+    </p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
