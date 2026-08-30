@@ -80,7 +80,7 @@ function quoteById(id) {
 }
 
 function attributionOf(q) {
-  return `${q.band} — ${q.song} (${q.year}) · ${q.album}`;
+  return `${q.band} · ${q.song} (${q.year}) · ${q.album}`;
 }
 
 /* ---------- Filtering ---------- */
@@ -158,15 +158,11 @@ function renderCard(q) {
   songEl.className = "card-song";
   songEl.textContent = `${q.song} (${q.year}) · ${q.album}`;
 
-  const albumNoteEl = document.createElement("div");
-  albumNoteEl.className = "card-album-note";
-  albumNoteEl.textContent = q.albumNote;
-
   const tagsEl = document.createElement("div");
   tagsEl.className = "card-tags";
   (q.tags || []).forEach((t) => tagsEl.appendChild(makeTagEl("card-tag", t)));
 
-  card.append(copyBtn, moreBtn, quoteEl, bandEl, songEl, albumNoteEl, tagsEl);
+  card.append(copyBtn, moreBtn, quoteEl, bandEl, songEl, tagsEl);
   return card;
 }
 
@@ -218,7 +214,7 @@ function openModal(id, triggerEl) {
 
   const h2 = document.createElement("h2");
   h2.id = "modal-quote";
-  h2.textContent = `“${q.quote}”`;
+  h2.textContent = q.quote;
 
   const attr = document.createElement("p");
   attr.className = "modal-attribution";
@@ -257,10 +253,10 @@ function openModal(id, triggerEl) {
 
   els.modalContent.append(
     h2, attr,
-    ctxHead, ctx,
-    albumHead, album,
     lyrHead, lyr,
+    ctxHead, ctx,
     tagsHead, tags,
+    albumHead, album,
     shareBtn
   );
 
