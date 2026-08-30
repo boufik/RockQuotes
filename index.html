@@ -10,19 +10,17 @@
 <body>
   <header class="site-header">
     <div class="header-top">
-      <div class="lyrics-search">
-        <label for="lyrics-input">Search lyrics</label>
-        <input type="search" id="lyrics-input" placeholder="Search inside the lyrics&hellip;" autocomplete="off">
-      </div>
-
       <h1 class="site-title">Rock Quotes</h1>
 
       <p class="site-tagline">Some of the most perfect phrases ever heard through rock music.</p>
     </div>
 
-    <div class="header-controls">
+    <div class="initial-buttons">
+      <div class="lyrics-search">
+        <input type="search" id="lyrics-input" placeholder="Search inside the lyrics&hellip;" autocomplete="off">
+      </div>
+
       <div class="main-search">
-        <label for="search-input">Search</label>
         <input type="search" id="search-input" placeholder="Quote, band, song or album&hellip;" autocomplete="off">
       </div>
 
@@ -30,7 +28,10 @@
     </div>
 
     <div class="filter-bar">
-      <div id="tag-filters" class="tag-filters" role="group" aria-label="Filter by theme"></div>
+      <div class="tag-filters-wrap">
+        <span class="filter-caption">Themes</span>
+        <div id="tag-filters" class="tag-filters" role="group" aria-label="Filter by theme"></div>
+      </div>
 
       <div class="match-mode" role="group" aria-label="Tag match mode">
         <span class="match-mode-label">Match</span>
@@ -41,7 +42,6 @@
   </header>
 
   <main>
-    <p id="result-count" class="result-count" aria-live="polite"></p>
     <div id="quote-grid" class="quote-grid"></div>
     <p id="empty-state" class="empty-state" hidden>No quotes match your search.</p>
   </main>

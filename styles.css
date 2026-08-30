@@ -77,22 +77,10 @@ input[type="search"]:focus {
 }
 
 .lyrics-search {
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
   text-align: left;
-  max-width: 240px;
-}
-
-.lyrics-search label,
-.main-search label {
-  font-size: 0.7rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--text-faint);
 }
 
 .site-title {
@@ -112,10 +100,10 @@ input[type="search"]:focus {
   font-family: var(--serif);
 }
 
-.header-controls {
+.initial-buttons {
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
   gap: 0.75rem;
   flex-wrap: wrap;
   margin-top: 1.75rem;
@@ -156,6 +144,20 @@ input[type="search"]:focus {
   margin-top: 1.5rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border);
+}
+
+.tag-filters-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-caption {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-faint);
 }
 
 .tag-filters {
@@ -214,19 +216,12 @@ input[type="search"]:focus {
   font-weight: 600;
 }
 
-/* ---------- Result count ---------- */
-.result-count {
-  color: var(--text-faint);
-  font-size: 0.8rem;
-  letter-spacing: 0.03em;
-  margin: 1.5rem 0 0.75rem;
-}
-
 /* ---------- Cards ---------- */
 .quote-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.1rem;
+  margin-top: 1.5rem;
 }
 
 .card {
@@ -431,9 +426,9 @@ input[type="search"]:focus {
 
 /* ---------- Footer ---------- */
 .site-footer {
-  max-width: 760px;
+  max-width: var(--maxw);
   margin: 0 auto;
-  padding: 2rem 1.5rem 3rem;
+  padding: 2rem 1.25rem 3rem;
   border-top: 1px solid var(--border);
 }
 
@@ -467,11 +462,7 @@ input[type="search"]:focus {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 640px) {
-  .header-top { padding-top: 4.5rem; }
-
   .lyrics-search {
-    position: static;
-    max-width: none;
     margin-bottom: 1rem;
     align-items: stretch;
   }

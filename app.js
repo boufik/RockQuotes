@@ -14,7 +14,6 @@ let lastFocusedEl = null;
 /* ---------- DOM refs ---------- */
 const els = {
   grid: document.getElementById("quote-grid"),
-  count: document.getElementById("result-count"),
   empty: document.getElementById("empty-state"),
   tagFilters: document.getElementById("tag-filters"),
   mainInput: document.getElementById("search-input"),
@@ -177,7 +176,6 @@ function render() {
   els.grid.innerHTML = "";
   list.forEach((q) => els.grid.appendChild(renderCard(q)));
 
-  els.count.textContent = `${list.length} ${list.length === 1 ? "quote" : "quotes"}`;
   els.empty.hidden = list.length !== 0;
 }
 
