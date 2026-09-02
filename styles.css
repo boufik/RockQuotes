@@ -14,7 +14,7 @@
   --accent-ink: #06232b;
   --radius: 12px;
   --radius-sm: 8px;
-  --maxw: 1100px;
+  --site-width: 75%;
   --serif: Georgia, "Times New Roman", Cambria, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
@@ -38,8 +38,8 @@ body {
 }
 
 main {
-  max-width: var(--maxw);
-  margin: 0 auto;
+  width: var(--site-width);
+  margin-inline: auto;
   padding: 0 1.25rem 4rem;
 }
 
@@ -66,8 +66,8 @@ input[type="search"]:focus {
 
 /* ---------- Header ---------- */
 .site-header {
-  max-width: var(--maxw);
-  margin: 0 auto;
+  width: var(--site-width);
+  margin-inline: auto;
   padding: 1.5rem 1.25rem 1rem;
 }
 
@@ -424,11 +424,36 @@ input[type="search"]:focus {
 
 /* ---------- Footer ---------- */
 .site-footer {
-  max-width: var(--maxw);
-  margin: 0 auto;
+  width: var(--site-width);
+  margin-inline: auto;
   padding: 2rem 1.25rem 3rem;
   border-top: 1px solid var(--border);
 }
+
+.gh-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: fit-content;
+  margin: 0 auto 1.25rem;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--border-warm);
+  border-radius: 999px;
+  color: var(--accent-soft);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.gh-link:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+.gh-icon { flex: none; }
 
 .site-footer p {
   font-size: 0.76rem;
@@ -459,7 +484,15 @@ input[type="search"]:focus {
 .toast.is-hiding { opacity: 0; }
 
 /* ---------- Responsive ---------- */
+/* Tablets: 75% leaves too little room for the card grid. */
+@media (max-width: 900px) {
+  :root { --site-width: 85%; }
+}
+
+/* Phones: the page needs nearly the full viewport. */
 @media (max-width: 640px) {
+  :root { --site-width: 92%; }
+
   .lyrics-search {
     margin-bottom: 1rem;
     align-items: stretch;
@@ -471,7 +504,41 @@ input[type="search"]:focus {
 
   .main-search { width: 100%; }
 
+  .initial-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+  }
+
+  .surprise-btn {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  input[type="search"] { min-height: 44px; }
+
+  /* Unfloat the ALL/ANY toggle so it sits on its own row above the chips. */
+  .match-mode {
+    float: none;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .mode-btn { padding: 0.4rem 0.9rem; }
+
+  .chip { padding: 0.4rem 0.85rem; }
+
   .quote-grid { grid-template-columns: 1fr; }
+
+  .card { padding: 3rem 1rem 1.15rem; }
+
+  .modal { padding: 0.75rem; }
+
+  .modal-panel {
+    max-height: 92vh;
+    padding: 1.5rem 1.15rem;
+  }
+
+  .gh-link { min-height: 44px; }
 }
 
 /* ---------- Reduced motion ---------- */
